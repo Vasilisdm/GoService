@@ -20,6 +20,12 @@ var albums = []album{
 	{ID: "3", Title: "Sarah Vaughan and Clifford Brown", Artist: "Sarah Vaughan", Price: 39.99},
 }
 
+func main() {
+	router := gin.Default()
+	router.GET("/albums", getAlbums)
+	router.Run("localhost:8080")
+}
+
 func getAlbums(context *gin.Context) {
 	context.IndentedJSON(http.StatusOK, albums)
 }
